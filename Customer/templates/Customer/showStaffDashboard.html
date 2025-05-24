@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 30px;
+        }
+
+        .profile-header div {
+            flex-grow: 1;
+        }
+
+        .profile-header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        .token-sections {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .token-box {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            overflow-x: auto;
+        }
+
+        .token-box h2 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+        }
+
+        .no-data {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Staff Profile -->
+    <div class="profile-header">
+        <img src="{{ staff.image.url }}" alt="Staff Image">
+        <div>
+            <h1>{{ staff.user.username }}</h1>
+            <p><strong>Email:</strong> {{ staff.user.email }}</p>
+            <p><strong>StaffID</strong> {{ staff.staff_id }}</p>
+          
+        </div>
+    </div>
+
+    <!-- Token Sections -->
+    <div class="token-sections">
+
+        <!-- Active Tokens -->
+        <div class="token-box">
+            <h2>Active Tokens</h2>
+            {% if tokenActive %}
+                <table>
+                    <tr>
+                        <th>Token #</th>
+                        <th>Customer</th>
+                        <th>Created At</th>
+                    </tr>
+                    {% for token in tokenActive %}
+                    <tr>
+                        <td>{{ token.token_number }}</td>
+                        <td>{{ token.customer.username }}</td>
+                        <td>{{ token.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p class="no-data">No active tokens.</p>
+            {% endif %}
+        </div>
+
+        <!-- In-Queue Tokens -->
+        <div class="token-box">
+            <h2>Tokens In Queue</h2>
+            {% if tokenInQueue %}
+                <table>
+                    <tr>
+                        <th>Token #</th>
+                        <th>Customer</th>
+                        <th>Created At</th>
+                    </tr>
+                    {% for token in tokenInQueue %}
+                    <tr>
+                        <td>{{ token.token_number }}</td>
+                        <td>{{ token.customer.username }}</td>
+                        <td>{{ token.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p class="no-data">No tokens in queue.</p>
+            {% endif %}
+        </div>
+
+        <!-- Used Tokens -->
+        <div class="token-box">
+            <h2>Used Tokens</h2>
+            {% if tokenUsed %}
+                <table>
+                    <tr>
+                        <th>Token #</th>
+                        <th>Customer</th>
+                        <th>Created At</th>
+                    </tr>
+                    {% for token in tokenUsed %}
+                    <tr>
+                        <td>{{ token.token_number }}</td>
+                        <td>{{ token.customer.username }}</td>
+                        <td>{{ token.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p class="no-data">No used tokens.</p>
+            {% endif %}
+        </div>
+
+    </div>
+
+</body>
+</html>

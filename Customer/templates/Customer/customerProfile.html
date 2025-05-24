@@ -1,0 +1,18 @@
+{% extends 'Customer/base.html' %}
+{% load static %}
+
+{% block main-content %}
+
+<h2>Customer Profile</h2>
+<p><strong>Username:</strong> {{ profile.user.username }}</p>
+<p><strong>Ration Card Number:</strong> {{ profile.ration_card_number }}</p>
+<p><strong>Family Members:</strong> {{ profile.family_members_count }}</p>
+<p><strong>Ration Type:</strong> {{ profile.ration_type }}</p>
+<p><strong>District:</strong> {{ profile.district }}</p>
+<p><strong>State:</strong> {{ profile.state }}</p>
+{% if profile.image %}
+    <img src="{{ profile.image.url }}" alt="Profile Image" width="150">
+{% endif %}
+
+
+{% endblock main-content %}

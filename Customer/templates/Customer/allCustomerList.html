@@ -1,0 +1,39 @@
+{% extends 'Customer/base.html' %}
+{% block main-content %}
+<h2>All Registered Customers</h2>
+
+<table border="1" cellspacing="0" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Profile Image</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Ration Card No.</th>
+            <th>Family Count</th>
+            <th>Ration Type</th>
+            <th>District</th>
+            <th>State</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for profile in customers %}
+        <tr>
+            <td>
+                {% if profile.image %}
+                    <img src="{{ profile.image.url }}" width="80" height="80" alt="Profile">
+                {% else %}
+                    N/A
+                {% endif %}
+            </td>
+            <td>{{ profile.user.username }}</td>
+            <td>{{ profile.user.email }}</td>
+            <td>{{ profile.ration_card_number }}</td>
+            <td>{{ profile.family_members_count }}</td>
+            <td>{{ profile.ration_type }}</td>
+            <td>{{ profile.district }}</td>
+            <td>{{ profile.state }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock main-content %}

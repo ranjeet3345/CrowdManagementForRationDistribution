@@ -48,8 +48,8 @@
       <div class="col-md-4">
         <div class="card border-0 shadow h-100">
           <div class="card-body text-center">
-            <h5 class="fw-bold text-primary">Admin Dashboard</h5>
-            <p>Admins can manage user tokens, view crowd analytics, and send alerts.</p>
+            <h5 class="fw-bold text-primary">Staff Dashboard</h5>
+            <p>Staff can manage user tokens, view crowd analytics, and send alerts.</p>
           </div>
         </div>
       </div>
@@ -68,8 +68,8 @@
             <div class="display-6 fw-bold text-primary">{{ forloop.counter }}</div>
             <p class="mt-2">
               {% if forloop.counter == 1 %} Register with your details
-              {% elif forloop.counter == 2 %} Choose a convenient time slot
-              {% elif forloop.counter == 3 %} Track your live position
+              {% elif forloop.counter == 2 %} See the no of people in Queue for each staff   
+              {% elif forloop.counter == 3 %} Choose a staff based on your preference
               {% elif forloop.counter == 4 %} Visit when it's your turn
               {% endif %}
             </p>
@@ -84,7 +84,7 @@
 <footer class="text-center py-4 text-white" style="background-color: #212529;">
   <div class="container">
     <p class="mb-1">© 2025 CrowdManage. All rights reserved.</p>
-    <p class="mb-0">Made with ❤️ by Ajay Yadav</p>
+    <p class="mb-0">Made with ❤️ by Ranjeet Yadav</p>
   </div>
 </footer>
 

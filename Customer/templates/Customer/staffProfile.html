@@ -1,0 +1,19 @@
+{% extends 'Customer/base.html' %}
+{% load static %}
+
+{% block main-content %}
+
+
+<h2>Staff Profile</h2>
+<p><strong>Username:</strong> {{ profile.user.username }}</p>
+<p><strong>Staff ID:</strong> {{ profile.staff_id }}</p>
+<p><strong>Center Assigned:</strong> {{ profile.center_assigned }}</p>
+<p><strong>District:</strong> {{ profile.district }}</p>
+<p><strong>State:</strong> {{ profile.state }}</p>
+{% if profile.image %}
+    <img src="{{ profile.image.url }}" alt="Profile Image" width="150">
+{% endif %}
+
+
+{%  endblock main-content %}
+

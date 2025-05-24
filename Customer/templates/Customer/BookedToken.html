@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Token Booked</title>
+</head>
+<body>
+    <h2>Token Booking Successful!</h2>
+
+    <div>
+        <h3>Customer Details</h3>
+        <p><strong>ID:</strong> {{ customer.id }}</p>
+        <p><strong>Username:</strong> {{ customer.username }}</p>
+        {% if customer_profile.image %}
+            <img src="{{ customer_profile.image.url }}" width="150" alt="Customer Image">
+        {% else %}
+            <p>No customer image available.</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <h3>Staff Details</h3>
+        <p><strong>ID:</strong> {{ staff.id }}</p>
+        <p><strong>Username:</strong> {{ staff.username }}</p>
+        {% if staff_profile.image %}
+            <img src="{{ staff_profile.image.url }}" width="150" alt="Staff Image">
+        {% else %}
+            <p>No staff image available.</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <h3>Token Info</h3>
+        <p><strong>Token Number:</strong> {{ token.token_number }}</p>
+        <p><strong>Created At:</strong> {{ token.created_at }}</p>
+    </div>
+
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

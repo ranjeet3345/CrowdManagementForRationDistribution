@@ -24,10 +24,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-            <li class="nav-item"><a class="btn btn-primary me-2" href="{% url 'login' %}">login</a></li>     
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'view_profile' %}">Hi,{{user.username}}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'allStaffList' %}">Staffs</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'allCustomerList' %}">Customer</a></li>
+            
+
+
+            <li class="nav-item">
+              {% if request.user.is_authenticated %}
+                <a class="btn btn-primary me-2" href="{% url 'logout' %}">Logout</a>
+              {% else %}
+                <a class="btn btn-primary me-2" href="{% url 'login' %}">Login</a>
+              {% endif %}
+            </li>     
           </ul>
         </div>
       </div>
