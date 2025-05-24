@@ -155,18 +155,22 @@ def view_profile(request):
 
 
 
-
 @login_required
-def showStaffDashBoard(request,staff_id):
-    staff = get_object_or_404(CustomUser, id=staff_id)
+def showStaffDashBoard(request, staff_id):
+    user = get_object_or_404(CustomUser, id=staff_id)
+    staff_profile = get_object_or_404(StaffProfile, user=user)
 
-    tokenActive=Token.objects.filter(Q(is_active=True) & Q(staff=staff)& Q(is_used=False)&Q(in_queue=False))
-    tokenInQueue=Token.objects.filter(Q(is_active=True) & Q(staff=staff)& Q(is_used=False) & Q(in_queue=True))
-    tokenUsed=Token.objects.filter(Q(is_active=True) & Q(staff=staff)& Q(is_used=False) & Q(in_queue=True))
-    return render(request,'Customer/showStaffDashboard.html',locals())
+    tokenActive = Token.objects.filter(is_active=True, staff=user, is_used=False, in_queue=False)
+    tokenInQueue = Token.objects.filter(is_active=True, staff=user, is_used=False, in_queue=True)
+    tokenUsed = Token.objects.filter(is_active=True, staff=user, is_used=True)
 
-
-
+    return render(request, 'Customer/showStaffDashboard.html', {
+        'staff': user,
+        'staff_profile': staff_profile,
+        'tokenActive': tokenActive,
+        'tokenInQueue': tokenInQueue,
+        'tokenUsed': tokenUsed,
+    })
 
 
 

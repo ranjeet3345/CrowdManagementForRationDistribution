@@ -81,14 +81,14 @@
 </head>
 <body>
 
-    <!-- Staff Profile -->
     <div class="profile-header">
-        <img src="{{ staff.image.url }}" alt="Staff Image">
+        <img src="{{ staff_profile.image.url }}" alt="Staff Image" width="150" height="150" style="border-radius: 50%;">
         <div>
-            <h1>{{ staff.user.username }}</h1>
-            <p><strong>Email:</strong> {{ staff.user.email }}</p>
-            <p><strong>StaffID</strong> {{ staff.staff_id }}</p>
-          
+            <h1>{{ staff.username }}</h1>
+            <p><strong>Email:</strong> {{ staff.email }}</p>
+            <p><strong>Staff ID:</strong> {{ staff_profile.staff_id }}</p>
+            <p><strong>Center Assigned:</strong> {{ staff_profile.center_assigned }}</p>
+            <p><strong>Location:</strong> {{ staff_profile.district }}, {{ staff_profile.state }}</p>
         </div>
     </div>
 
