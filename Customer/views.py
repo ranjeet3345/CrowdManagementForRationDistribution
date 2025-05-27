@@ -36,8 +36,10 @@ def book_token(request, staff_id):
   
     customer_profile = CustomerProfile.objects.filter(user=request.user).first()
     staff_profile = StaffProfile.objects.filter(user=staff).first()
+    staff_profile.noOfTokenBooked=staff_profile.noOfTokenBooked+1
+    staff_profile.save()
     
-    staff_profile.noOfTokenBooked+=1
+
     return render(request, 'Customer/BookedToken.html', {
         'token': token,
         'customer': request.user,
@@ -166,6 +168,46 @@ def showStaffDashBoard(request, staff_id):
 
     return render(request, 'Customer/showStaffDashboard.html', {
         'staff': user,
+        'staff_profile': staff_profile,
+        'tokenActive': tokenActive,
+        'tokenInQueue': tokenInQueue,
+        'tokenUsed': tokenUsed,
+    })
+
+
+
+@login_required
+def customerInQueue(request,token_id):
+    token=Token.objects.get(id=token_id)
+    token.in_queue=True
+    token.save() 
+    user_staff=token.staff
+    staff_profile=get_object_or_404(StaffProfile, user=user_staff)
+    tokenActive = Token.objects.filter(is_active=True, staff=user_staff, is_used=False, in_queue=False)
+    tokenInQueue = Token.objects.filter(is_active=True, staff=user_staff, is_used=False, in_queue=True)
+    tokenUsed = Token.objects.filter(is_active=True, staff=user_staff, is_used=True)
+
+    return render(request, 'Customer/showStaffDashboard1.html', {
+        'staff': user_staff,
+        'staff_profile': staff_profile,
+        'tokenActive': tokenActive,
+        'tokenInQueue': tokenInQueue,
+        'tokenUsed': tokenUsed,
+    })
+
+@login_required
+def haveTakenRation(request,token_id):
+    token=Token.objects.get(id=token_id)
+    token.is_used=True
+    token.save()
+    user_staff=token.staff
+    staff_profile=get_object_or_404(StaffProfile, user=user_staff)
+    tokenActive = Token.objects.filter(is_active=True, staff=user_staff, is_used=False, in_queue=False)
+    tokenInQueue = Token.objects.filter(is_active=True, staff=user_staff, is_used=False, in_queue=True)
+    tokenUsed = Token.objects.filter(is_active=True, staff=user_staff, is_used=True)
+
+    return render(request, 'Customer/showStaffDashboard2.html', {
+        'staff': user_staff,
         'staff_profile': staff_profile,
         'tokenActive': tokenActive,
         'tokenInQueue': tokenInQueue,

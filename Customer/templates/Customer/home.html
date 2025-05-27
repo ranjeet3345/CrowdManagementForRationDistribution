@@ -10,47 +10,44 @@
 <!-- Hero Section -->
 <section class="hero text-white py-5" style="background: linear-gradient(135deg, #0d6efd, #6610f2); min-height: 70vh; display: flex; align-items: center;">
   <div class="container text-center">
-    <h1 class="display-4 fw-bold">Smart Crowd Management</h1>
-    <p class="lead mb-4">Avoid long queues. Get scheduled. Track in real time at your ration store.</p>
-    <a href="{% url 'allStaffList' %}" class="btn btn-light btn-lg px-4">Get Your Token</a>
+    <h1 class="display-3 fw-bold mb-3">Smart Crowd Management</h1>
+    <p class="lead mb-4">Avoid long queues. Get scheduled. Track in real-time at your ration store.</p>
+    <a href="{% url 'allStaffList' %}" class="btn btn-light btn-lg px-5 py-3 rounded-pill shadow-sm fw-semibold">Get Your Token</a>
   </div>
 </section>
 
 <!-- About Section -->
-<section id="about" class="py-5 text-center bg-white">
+<section id="about" class="py-5 bg-white text-center">
   <div class="container">
-    <h3 class="fw-bold mb-3 text-dark">About the System</h3>
-    <p class="text-muted fs-5">Our system uses real-time tracking and intelligent scheduling to manage crowds at ration shops. Users can register, get tokens, and receive real-time updates. Admins can manage and monitor queues efficiently.</p>
+    <h2 class="fw-bold mb-3 text-dark">About the System</h2>
+    <p class="text-muted fs-5">Our system combines <strong>real-time tracking</strong> with <strong>smart scheduling</strong> to ensure crowd-free ration shopping. Users can register, book tokens, and get notified of their slot. Staff members have dashboards to manage queues, view analytics, and issue alerts efficiently.</p>
   </div>
 </section>
 
 <!-- Features Section -->
-<section id="features" class="features py-5" style="background-color: #f8f9fa;">
+<section id="features" class="py-5" style="background-color: #f1f3f5;">
   <div class="container">
-    <h3 class="fw-bold text-center mb-5 text-dark">Key Features</h3>
+    <h2 class="fw-bold text-center mb-5 text-dark">Key Features</h2>
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card border-0 shadow h-100">
-          <div class="card-body text-center">
-            <h5 class="fw-bold text-primary">Real-Time Tracking</h5>
-            <p>See live updates of current crowd and your position in the queue.</p>
-          </div>
+        <div class="card border-0 shadow h-100 text-center p-4">
+          <div class="mb-3"><i class="bi bi-geo-alt-fill text-primary fs-1"></i></div>
+          <h5 class="fw-bold text-primary">Real-Time Tracking</h5>
+          <p class="text-muted">Live updates about the crowd, queue position, and current status at the ration shop.</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card border-0 shadow h-100">
-          <div class="card-body text-center">
-            <h5 class="fw-bold text-primary">Token Scheduling</h5>
-            <p>Get scheduled tokens based on real-time availability and reduce wait time.</p>
-          </div>
+        <div class="card border-0 shadow h-100 text-center p-4">
+          <div class="mb-3"><i class="bi bi-clock-history text-success fs-1"></i></div>
+          <h5 class="fw-bold text-success">Token Scheduling</h5>
+          <p class="text-muted">Efficient token allocation based on availability — no more long waits or uncertainty.</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card border-0 shadow h-100">
-          <div class="card-body text-center">
-            <h5 class="fw-bold text-primary">Staff Dashboard</h5>
-            <p>Staff can manage user tokens, view crowd analytics, and send alerts.</p>
-          </div>
+        <div class="card border-0 shadow h-100 text-center p-4">
+          <div class="mb-3"><i class="bi bi-speedometer2 text-danger fs-1"></i></div>
+          <h5 class="fw-bold text-danger">Staff Dashboard</h5>
+          <p class="text-muted">Admins and staff get access to analytics, queue control, and alert broadcasting.</p>
         </div>
       </div>
     </div>
@@ -60,17 +57,17 @@
 <!-- How It Works -->
 <section class="py-5 bg-white">
   <div class="container text-center">
-    <h3 class="fw-bold mb-5 text-dark">How It Works</h3>
+    <h2 class="fw-bold mb-5 text-dark">How It Works</h2>
     <div class="row g-4">
       {% for step in "1234" %}
-        <div class="col-md-3">
-          <div class="p-3 border rounded shadow-sm bg-light">
-            <div class="display-6 fw-bold text-primary">{{ forloop.counter }}</div>
-            <p class="mt-2">
+        <div class="col-md-3 col-sm-6">
+          <div class="p-4 border rounded shadow-sm h-100">
+            <div class="display-6 fw-bold text-primary mb-2">{{ forloop.counter }}</div>
+            <p class="text-muted">
               {% if forloop.counter == 1 %} Register with your details
-              {% elif forloop.counter == 2 %} See the no of people in Queue for each staff   
-              {% elif forloop.counter == 3 %} Choose a staff based on your preference
-              {% elif forloop.counter == 4 %} Visit when it's your turn
+              {% elif forloop.counter == 2 %} View queue status for all staff members
+              {% elif forloop.counter == 3 %} Choose a staff based on convenience
+              {% elif forloop.counter == 4 %} Visit only when it's your turn
               {% endif %}
             </p>
           </div>
@@ -83,9 +80,36 @@
 <!-- Footer -->
 <footer class="text-center py-4 text-white" style="background-color: #212529;">
   <div class="container">
-    <p class="mb-1">© 2025 CrowdManage. All rights reserved.</p>
-    <p class="mb-0">Made with ❤️ by Ranjeet Yadav</p>
+    <p class="mb-1">© 2025 <strong>CrowdManage</strong>. All rights reserved.</p>
+    <p class="mb-0">Crafted with ❤️ by <strong>Ranjeet Yadav</strong></p>
   </div>
 </footer>
+
+<!-- Hover Effect Styles -->
+<style>
+  /* Hover effects for Key Features */
+  #features .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  #features .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    background-color: #e9f0ff;
+  }
+
+  /* Hover effects for How It Works steps */
+  section.py-5.bg-white .border {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  section.py-5.bg-white .border:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(37, 117, 252, 0.3);
+    background-color: #f0f7ff;
+  }
+</style>
 
 {% endblock main-content %}

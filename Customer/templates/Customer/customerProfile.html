@@ -2,17 +2,57 @@
 {% load static %}
 
 {% block main-content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-4">
+          <h3 class="text-center text-primary mb-4">Customer Profile</h3>
 
-<h2>Customer Profile</h2>
-<p><strong>Username:</strong> {{ profile.user.username }}</p>
-<p><strong>Ration Card Number:</strong> {{ profile.ration_card_number }}</p>
-<p><strong>Family Members:</strong> {{ profile.family_members_count }}</p>
-<p><strong>Ration Type:</strong> {{ profile.ration_type }}</p>
-<p><strong>District:</strong> {{ profile.district }}</p>
-<p><strong>State:</strong> {{ profile.state }}</p>
-{% if profile.image %}
-    <img src="{{ profile.image.url }}" alt="Profile Image" width="150">
-{% endif %}
+          <div class="text-center mb-4">
+            {% if profile.image %}
+              <img src="{{ profile.image.url }}" alt="Profile Image"
+                   class="rounded-circle shadow" width="150" height="150"
+                   style="object-fit: cover; border: 4px solid #0d6efd;">
+            {% else %}
+              <img src="{% static 'Customer/images/default-profile.png' %}" alt="Default Image"
+                   class="rounded-circle shadow" width="150" height="150"
+                   style="object-fit: cover; border: 4px solid #ccc;">
+            {% endif %}
+          </div>
 
+          <div class="row mb-2">
+            <div class="col-sm-5 fw-bold">Username:</div>
+            <div class="col-sm-7 text-secondary">{{ profile.user.username }}</div>
+          </div>
 
+          <div class="row mb-2">
+            <div class="col-sm-5 fw-bold">Ration Card Number:</div>
+            <div class="col-sm-7 text-secondary">{{ profile.ration_card_number }}</div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-sm-5 fw-bold">Family Members:</div>
+            <div class="col-sm-7 text-secondary">{{ profile.family_members_count }}</div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-sm-5 fw-bold">Ration Type:</div>
+            <div class="col-sm-7 text-secondary">{{ profile.ration_type }}</div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-sm-5 fw-bold">District:</div>
+            <div class="col-sm-7 text-secondary">{{ profile.district }}</div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-sm-5 fw-bold">State:</div>
+            <div class="col-sm-7 text-secondary">{{ profile.state }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock main-content %}

@@ -72,3 +72,9 @@ class Token(models.Model):
     def __str__(self):
         return f"Token #{self.token_number} for {self.customer.username} with {self.staff.username}"
 
+# class itemsQuantity(models.Model):
+#     token=models.OneToOneField(Token,on_delete=models.CASCADE)
+#     Wheat=models.IntegerField(default=0)
+#     Rice=models.IntegerField(default=0)
+#     Sugar=models.IntegerField(default=0)
+#     Dal=models.IntegerField(default=0)

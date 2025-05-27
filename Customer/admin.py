@@ -5,7 +5,7 @@ from .models import CustomUser, CustomerProfile, StaffProfile,Token
 
 @admin.register(Token)
 class TokenAdmin(admin.ModelAdmin):
-    list_display=('customer','staff','token_number','is_active','in_queue','is_used')
+    list_display=('id','customer','staff','token_number','is_active','in_queue','is_used')
 
 
 class CustomerProfileInline(admin.StackedInline):
