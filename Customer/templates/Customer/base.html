@@ -189,7 +189,7 @@
     <div class="container">
       <a class="navbar-brand" href="{% url 'home' %}">
         <img src="{% static 'Customer/images/logos/main.png' %}" alt="CrowdManage Logo" />
-        CrowdManage
+        SmartRation
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
@@ -203,28 +203,45 @@
             <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'howitworks' %}">HowItworks</a>
+          </li>
+
+
+
+
+
+
+          <!-- <li class="nav-item">
             <a class="nav-link {% if 'view_profile' in request.path %}active{% endif %}" href="{% url 'view_profile' %}">
               Hi, {{ user.username }}
             </a>
-          </li>
-          <li class="nav-item" >
+          </li> -->
+         
+
+
+          <!-- <li class="nav-item" >
             <a class="nav-link {% if 'allStaffList' in request.path %}active{% endif %}" href="{% url 'allStaffList' %}">Staffs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if 'allCustomerList' in request.path %}active{% endif %}" href="{% url 'allCustomerList' %}">Customers</a>
-          </li>
+          </li> -->
 
           <li class="nav-item d-flex align-items-center ms-3">
             {% if request.user.is_authenticated %}
               <a class="btn btn-outline-primary" href="{% url 'logout' %}">Logout</a>
             {% else %}
-              <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+              <a class="btn btn-outline-primary" href="{% url 'login' %}">Login</a>
             {% endif %}
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  
 
   <!-- Main content wrapper -->
   <main class="content-wrapper container">

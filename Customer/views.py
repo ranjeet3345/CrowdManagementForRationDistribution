@@ -96,7 +96,11 @@ def home(request):
     print("Logged in user:", request.user.username)
     return render(request, 'Customer/home.html')
 
+def about(request):
+    return render(request,'Customer/about.html')
 
+def howitworks(request):
+    return render(request,'Customer/howitworks.html')
 
 @login_required
 def editStaffProfile(request):
@@ -213,6 +217,8 @@ def haveTakenRation(request,token_id):
         'tokenInQueue': tokenInQueue,
         'tokenUsed': tokenUsed,
     })
+
+
 
 
 

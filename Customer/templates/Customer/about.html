@@ -1,0 +1,98 @@
+{% extends 'Customer/base.html' %}
+{% load static %}
+
+{% block title %}About Us | RationManage{% endblock %}
+
+{% block main-content %}
+<!-- Hero Banner -->
+<section class="bg-success text-white text-center py-6" style="font-family: 'Poppins', sans-serif;">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-2" style="letter-spacing: 1.2px;">
+      About <span class="text-warning">RationManage</span>
+    </h1>
+    <p class="lead mb-4" style="font-size: 1.25rem; max-width: 600px; margin: auto;">
+      Smart Ration Token Management for a Better Tomorrow
+    </p>
+    <p class="fs-5 fst-italic text-warning mb-0">
+      <i class="bi bi-lightning-charge-fill me-2"></i>Tokenize Your Queue. Simplify Your Life.
+    </p>
+  </div>
+</section>
+
+<!-- About Description -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div style="max-height: 400px; overflow: hidden; border-radius: 20px;">
+          <img src="{% static 'Customer/images/Extra/about.jpeg' %}" 
+               alt="About Us" 
+               class="img-fluid w-100 shadow-lg" 
+               style="object-fit: cover; height: 100%; width: 100%;">
+        </div>
+      </div>
+      
+      <div class="col-md-6" data-aos="fade-left">
+        <h2 class="fw-bold text-success mb-3" style="letter-spacing: 0.8px;">Who We Are</h2>
+        <p class="text-muted fs-5">
+          RationManage is a smart digital platform created to modernize the traditional ration distribution system.
+          We aim to reduce overcrowding, eliminate waiting lines, and provide real-time tracking through online tokens.
+        </p>
+        <ul class="list-unstyled mt-4 fs-5">
+          <li class="mb-3">
+            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
+            Token-based entry system
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
+            Real-time queue monitoring
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
+            Crowd-free, safe environment
+          </li>
+          <li class="mb-3">
+            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
+            User-friendly interface for all
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission Section -->
+<section class="py-5 bg-white text-center px-3 px-md-0" data-aos="zoom-in">
+  <div class="container">
+    <h2 class="fw-bold text-success mb-4" style="letter-spacing: 1px;">Our Mission</h2>
+    <p class="text-muted mx-auto lead" style="max-width: 850px; font-size: 1.1rem; line-height: 1.7;">
+      To simplify and digitize the ration distribution process across India using technology,
+      making it more transparent, efficient, and fair for every citizen. 
+      We believe that access to essential commodities should not be stressful — let’s eliminate chaos with convenience.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 bg-success text-white text-center" data-aos="fade-up">
+  <div class="container">
+    <h3 class="fw-bold mb-3" style="letter-spacing: 1px;">Get Started with RationManage</h3>
+    <p class="mb-4 fs-5 fst-italic">Book your token and track your turn — no more long queues or confusion!</p>
+    {% comment %} <a href="{% url 'get_token' %}" class="btn btn-warning btn-lg px-5 fw-bold shadow-sm" style="border-radius: 50px; letter-spacing: 1px;">
+      🎟️ Get Your Token
+    </a> {% endcomment %}
+  </div>
+</section>
+
+<!-- AOS Animation Script -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-in-out',
+    once: true,
+  });
+</script>
+{% endblock %}

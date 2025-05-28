@@ -1,11 +1,57 @@
 {% extends 'Customer/base.html' %}
 {% load static %}
 
-{% block title %}
-  Home Page
-{% endblock title %}
+{% block title %}Home | Ration Management{% endblock %}
 
 {% block main-content %}
+<!-- Hero Section -->
+<section class="hero bg-light p-5 text-center text-dark rounded shadow-sm">
+  <div class="container">
+    <h1 class="display-3 fw-bold mb-3 heading-glow">
+      Welcome to <span class="text-success">SmartRation</span>
+    </h1>
+    <p class="lead mb-4">Your Smart Assistant for Ration Distribution — Book Tokens, Avoid Crowds, Save Time!</p>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features py-5 bg-white">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      <!-- Feature 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center border-0 shadow-sm p-3">
+          <img src="{% static 'Customer/images/Extra/tokenBook.png' %}" class="card-img-top mx-auto feature-img" alt="Fast Service">
+          <div class="card-body">
+            <h5 class="card-title text-success fw-bold">Quick & Easy</h5>
+            <p class="card-text text-muted">Generate ration tokens online in seconds with our smooth booking system.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Feature 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center border-0 shadow-sm p-3">
+          <img src="{% static 'Customer/images/Extra/graph.png' %}" class="card-img-top mx-auto feature-img" alt="Real-Time Tracking">
+          <div class="card-body">
+            <h5 class="card-title text-success fw-bold">Real-Time Tracking</h5>
+            <p class="card-text text-muted">See your live queue position and waiting time anytime, anywhere.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Feature 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center border-0 shadow-sm p-3">
+          <img src="{% static 'Customer/images/Extra/queue.jpeg' %}" class="card-img-top mx-auto feature-img" alt="Safe Distribution">
+          <div class="card-body">
+            <h5 class="card-title text-success fw-bold">Safe & Organized</h5>
+            <p class="card-text text-muted">Minimize crowding and ensure social distancing during distribution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- Hero Section -->
 <section class="hero text-white py-5" style="background: linear-gradient(135deg, #0d6efd, #6610f2); min-height: 70vh; display: flex; align-items: center;">
@@ -16,100 +62,19 @@
   </div>
 </section>
 
+
 <!-- About Section -->
-<section id="about" class="py-5 bg-white text-center">
-  <div class="container">
-    <h2 class="fw-bold mb-3 text-dark">About the System</h2>
-    <p class="text-muted fs-5">Our system combines <strong>real-time tracking</strong> with <strong>smart scheduling</strong> to ensure crowd-free ration shopping. Users can register, book tokens, and get notified of their slot. Staff members have dashboards to manage queues, view analytics, and issue alerts efficiently.</p>
-  </div>
-</section>
-
-<!-- Features Section -->
-<section id="features" class="py-5" style="background-color: #f1f3f5;">
-  <div class="container">
-    <h2 class="fw-bold text-center mb-5 text-dark">Key Features</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card border-0 shadow h-100 text-center p-4">
-          <div class="mb-3"><i class="bi bi-geo-alt-fill text-primary fs-1"></i></div>
-          <h5 class="fw-bold text-primary">Real-Time Tracking</h5>
-          <p class="text-muted">Live updates about the crowd, queue position, and current status at the ration shop.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 shadow h-100 text-center p-4">
-          <div class="mb-3"><i class="bi bi-clock-history text-success fs-1"></i></div>
-          <h5 class="fw-bold text-success">Token Scheduling</h5>
-          <p class="text-muted">Efficient token allocation based on availability — no more long waits or uncertainty.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 shadow h-100 text-center p-4">
-          <div class="mb-3"><i class="bi bi-speedometer2 text-danger fs-1"></i></div>
-          <h5 class="fw-bold text-danger">Staff Dashboard</h5>
-          <p class="text-muted">Admins and staff get access to analytics, queue control, and alert broadcasting.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- How It Works -->
-<section class="py-5 bg-white">
+<section class="about py-5">
   <div class="container text-center">
-    <h2 class="fw-bold mb-5 text-dark">How It Works</h2>
-    <div class="row g-4">
-      {% for step in "1234" %}
-        <div class="col-md-3 col-sm-6">
-          <div class="p-4 border rounded shadow-sm h-100">
-            <div class="display-6 fw-bold text-primary mb-2">{{ forloop.counter }}</div>
-            <p class="text-muted">
-              {% if forloop.counter == 1 %} Register with your details
-              {% elif forloop.counter == 2 %} View queue status for all staff members
-              {% elif forloop.counter == 3 %} Choose a staff based on convenience
-              {% elif forloop.counter == 4 %} Visit only when it's your turn
-              {% endif %}
-            </p>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
+    <h3 class="fw-bold text-success mb-3 display-6">Why <span class="heading-glow">RationManage</span>?</h3>
+    <p class="text-muted lead mx-auto" style="max-width: 800px;">
+      In crowded ration centers, people often face long queues, mismanagement, and chaos.
+      Our system brings order and efficiency with real-time token management, queue tracking,
+      and transparent distribution. It's time to manage crowds the smart way!
+    </p>
   </div>
 </section>
+{% endblock %}
 
-<!-- Footer -->
-<footer class="text-center py-4 text-white" style="background-color: #212529;">
-  <div class="container">
-    <p class="mb-1">© 2025 <strong>CrowdManage</strong>. All rights reserved.</p>
-    <p class="mb-0">Crafted with ❤️ by <strong>Ranjeet Yadav</strong></p>
-  </div>
-</footer>
 
-<!-- Hover Effect Styles -->
-<style>
-  /* Hover effects for Key Features */
-  #features .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
 
-  #features .card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    background-color: #e9f0ff;
-  }
-
-  /* Hover effects for How It Works steps */
-  section.py-5.bg-white .border {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    cursor: pointer;
-  }
-
-  section.py-5.bg-white .border:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 10px 20px rgba(37, 117, 252, 0.3);
-    background-color: #f0f7ff;
-  }
-</style>
-
-{% endblock main-content %}
