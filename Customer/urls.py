@@ -15,6 +15,4 @@ urlpatterns = [
     path('showStaffDashboard/<int:staff_id>',views.showStaffDashBoard,name='showStaffDashboard'),
     path('showStaffDashboard1/<int:token_id>',views.customerInQueue,name='showStaffDashboard1'),
     path('showStaffDashboard2/<int:token_id>',views.haveTakenRation,name='showStaffDashboard2'),
-
-
 ]

@@ -51,7 +51,7 @@ def book_token(request, staff_id):
 
 
 
-@login_required
+
 def allStaffView(request):
     staffs=StaffProfile.objects.select_related('user')
     
